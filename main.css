@@ -1,0 +1,43 @@
+body{
+ margin: 0;
+}
+
+nav{
+    background-color: blue;
+    position: sticky;
+    padding: 10px 30px 10px 30px;
+}
+
+nav ui{
+    background-color: blueviolet;
+}
+
+nav ul li{
+    display: inline;
+    background-color: yellow;
+    padding: 5px 5px 5px 5px;
+}
+
+div.Cover{
+    height: 500px;
+    background-color: black;
+    opacity: 0.5;
+    
+}
+
+div.generalContent{
+    background-color:rgb(9, 16, 16);
+    height: 600px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+div.RecentAnouncmentsContainer{
+    background-color: gray;
+    opacity: 0.1;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin: 10px 10px 10px 10px;
+}
