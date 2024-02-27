@@ -27,17 +27,39 @@ div.Cover{
 
 div.generalContent{
     background-color:rgb(9, 16, 16);
-    height: 600px;
+    height: 800px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 20% auto 30%;
+    grid-template-rows: 10% auto auto auto;
 }
 
-div.RecentAnouncmentsContainer{
+div.generalContent div.title{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+div.generalContent div{
     background-color: gray;
     opacity: 0.1;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-end: 5;
     margin: 10px 10px 10px 10px;
+}
+
+
+
+
+
+
+
+
+div.title *{
+    font-size: xx-large;
+    color: white;
+    margin: auto;
+    text-align: center;
 }
