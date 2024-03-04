@@ -6,6 +6,8 @@ nav{
     background-color: blue;
     position: sticky;
     padding: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-columns: 30% auto 30%;
 }
 
 nav ui{
@@ -40,9 +42,8 @@ div.generalContent div.title{
     grid-row-end: 2;
 }
 
-div.generalContent div{
-    background-color: gray;
-    opacity: 0.1;
+div.generalContent > div{
+    background-color: #151B1B;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -58,7 +59,14 @@ div.generalContent div{
 
 
 div.title *{
-    font-size: xx-large;
+    font-size: xxx-large;
+    color: white;
+    margin: auto;
+    text-align: center;
+}
+
+div.title-small *{    
+    font-size: large;
     color: white;
     margin: auto;
     text-align: center;
