@@ -1,26 +1,46 @@
-body{
- margin: 0;
+:root{
+    --navbuttons: #D9D9D9;
+    --navbar: #9B9D9B;
+    --textColorDark: black;
+    --textColorLight: white;
 }
+
+body{
+    margin: 0;
+}
+
+/*Nav Bar*/
 
 nav{
-    background-color: blue;
-    position: sticky;
-    padding: 10px 30px 10px 30px;
     display: grid;
+    position: sticky;
+    top: 0px;
+    /* opacity: 70%; */
+    background-color: var(--navbar);
+    padding: 10px 30px 10px 30px;
     grid-template-columns: 30% auto 30%;
+    z-index: 10000;
 }
 
-nav ui{
-    background-color: blueviolet;
+nav .buttonContainer{
+    display:flex;
+    gap: 20px;
 }
 
-nav ul li{
+nav .buttonContainer a{
     display: inline;
-    background-color: yellow;
-    padding: 5px 5px 5px 5px;
+    align-self: center;
+    text-decoration: none;
+    color: var(--textColorDark);
+    background-color: var(--navbuttons);
+    padding: 10px 13px 10px 13px;
+    border-radius: 5px;
 }
+
+
 
 div.Cover{
+    width: 85%;
     height: 500px;
     background-color: black;
     opacity: 0.5;
@@ -56,18 +76,35 @@ div.generalContent > div{
 
 
 
-
+/* Helper classes */
 
 div.title *{
     font-size: xxx-large;
-    color: white;
+    font-family: 'jacques-francois-Reg', serif;
+    font-weight: lighter;
+    color: var(--textColorLight);
     margin: auto;
     text-align: center;
 }
 
 div.title-small *{    
     font-size: large;
-    color: white;
+    font-family: 'jacques-francois-Reg', serif;
+    font-weight: lighter;
+    color: var(--textColorLight);
     margin: auto;
     text-align: center;
+}
+
+/* Fonts */
+
+/* jacques-francois */
+@font-face {
+    font-family: 'jacques-francois-Reg';
+    src: url("./media/fonts/jacques-francois/JacquesFrancois-Regular.otf");
+}
+
+@font-face {
+    font-family: 'jacques-francois-Shadow';
+    src: url("./media/fonts/jacques-francois/JacquesFrancoisShadow-Regular.otf");
 }
