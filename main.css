@@ -164,8 +164,13 @@ div.generalContent > div{
     position: relative;
     width: 270px;
     height: 360px;
-    padding: 10px;
     
+    
+}
+
+.gameslist .gamecard .tiltingContent{
+    padding: 10px;
+    background-color: var(--primary);
 }
 
 .gameslist .gamecard .tiltingContent .gametitle{
@@ -174,17 +179,19 @@ div.generalContent > div{
     bottom: 10;
 }
 
-.gameslist .gamecard .tiltingContent .gameimgcover{
+.gameslist .gamecard .tiltingContent .gameimgfade{
     grid-row: 1 / 4;
     grid-column: 1 / 4;
-    background-image: linear-gradient(#00000000 60%, #000000);
+    background-image: linear-gradient(#00000000 60%, #000000 90%);
     filter: blur(10px);
 }
 
-.gameslist .gamecard .tiltingContent .gamebackground{
+.gameslist .gamecard .tiltingContent .gameimg{
     grid-row: 1 / 4;
     grid-column: 1 / 4;
-    background-color: var(--primary);
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1 / 1.3;
 }
 
 /* https://www.youtube.com/watch?v=DCRcFf39SYo 
@@ -231,7 +238,7 @@ div.title-small *{
     }
 
     .tiltingContent{
-        --perspective: 500px;
+        --perspective: 600px;
         --rotation-x: 0deg;
         --rotation-y: 0deg;
         --angle: 5deg;
@@ -251,7 +258,7 @@ div.title-small *{
 
     .mouse-position-tracker{
         opacity: 0.2;
-        outline: 3px solid purple;
+        /* outline: 3px solid purple; */
         z-index: 10;
     }
 
