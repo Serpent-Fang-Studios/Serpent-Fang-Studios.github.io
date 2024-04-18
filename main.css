@@ -168,15 +168,15 @@ div.generalContent > div{
     background-color: var(--secondary);
 }
 
-.gameslist .game .title-medium{
+.gameslist .gamecard .title-medium{
     position: absolute;
     width: calc(100% - 10px);
     bottom: 10;
 }
 
-.gameslist .game .gameimgcover{
-    height:100%;
-    width: 100%;
+.gameslist .gamecard .gameimgcover{
+    grid-row: 1 / 4;
+    grid-column: 1 / 4;
     background-image: linear-gradient(#00000000 60%, #000000);
     filter: blur(10px);
 }
@@ -213,6 +213,14 @@ div.title-small *{
     margin: auto;
     text-align: center;
 }
+
+    /* Tilting */
+    /* The container that will have all the content in it with the mouse position dectections */
+    .tiltingContainer{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 
 /* Fonts */
 
