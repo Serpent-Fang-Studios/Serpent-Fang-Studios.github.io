@@ -165,20 +165,26 @@ div.generalContent > div{
     width: 270px;
     height: 360px;
     padding: 10px;
-    background-color: var(--secondary);
+    
 }
 
-.gameslist .gamecard .title-medium{
+.gameslist .gamecard .tiltingContent .gametitle{
     position: absolute;
     width: calc(100% - 10px);
     bottom: 10;
 }
 
-.gameslist .gamecard .gameimgcover{
+.gameslist .gamecard .tiltingContent .gameimgcover{
     grid-row: 1 / 4;
     grid-column: 1 / 4;
     background-image: linear-gradient(#00000000 60%, #000000);
     filter: blur(10px);
+}
+
+.gameslist .gamecard .tiltingContent .gamebackground{
+    grid-row: 1 / 4;
+    grid-column: 1 / 4;
+    background-color: var(--primary);
 }
 
 /* https://www.youtube.com/watch?v=DCRcFf39SYo 
@@ -217,27 +223,120 @@ div.title-small *{
     /* Tilting */
     /* The container that will have all the content in it with the mouse position dectections */
     .tiltingContainer{
+        
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
+        
     }
 
+    .tiltingContent{
+        --perspective: 500px;
+        --rotation-x: 0deg;
+        --rotation-y: 0deg;
+        --angle: 5deg;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        transform: 
+        perspective(var(--perspective))
+        rotateX(var(--rotation-x))
+        rotateY(var(--rotation-y));
+        transition: transform 500ms ease;
+    }
+
+    .mouse-position-tracker{
+        opacity: 0.2;
+        outline: 3px solid purple;
+        z-index: 10;
+    }
+
+    /* top left */
+    .mouse-position-tracker:nth-child(1):hover ~.tiltingContent{
+        --rotation-x: var(--angle);
+        --rotation-y: calc(-1 * var(--angle));
+    }
+
+    /* top middle */
+    .mouse-position-tracker:nth-child(2):hover ~.tiltingContent{
+        --rotation-x: var(--angle);
+        --rotation-y: 0deg;
+    }
+
+    /* top right */
+    .mouse-position-tracker:nth-child(3):hover ~.tiltingContent{
+        --rotation-x: var(--angle);
+        --rotation-y: var(--angle);
+    }
+
+    /* middle left */
+    .mouse-position-tracker:nth-child(4):hover ~.tiltingContent{
+        --rotation-x: 0deg;
+        --rotation-y: calc(-1*var(--angle));
+    }
+
+    /* middle middle */
+    .mouse-position-tracker:nth-child(5):hover ~.tiltingContent{
+        --rotation-x: 0deg;
+        --rotation-y: 0deg;
+    }
+
+    /* middle right */
+    .mouse-position-tracker:nth-child(6):hover ~.tiltingContent{
+        --rotation-x: 0deg;
+        --rotation-y: var(--angle);
+    }
+
+    /* top left */
+    .mouse-position-tracker:nth-child(7):hover ~.tiltingContent{
+        --rotation-x: calc(-1*var(--angle));
+        --rotation-y: calc(-1*var(--angle));
+    }
+
+    /* top middle */
+    .mouse-position-tracker:nth-child(8):hover ~.tiltingContent{
+        --rotation-x: calc(-1*var(--angle));
+        --rotation-y: 0deg;
+    }
+
+    /* top right */
+    .mouse-position-tracker:nth-child(9):hover ~.tiltingContent{
+        --rotation-x: calc(-1*var(--angle));
+        --rotation-y: var(--angle);
+    }
+
+   
+    /* 1st, 4th, 7th */
     .tiltingContainer .mouse-position-tracker:nth-of-type(3n - 2){
-        background-color: yellow;
         grid-column: 1 / 2;
         
     }
-
+    /* 2nd, 5th, 8th */
     .tiltingContainer .mouse-position-tracker:nth-of-type(3n - 1){
-        background-color: red;
         grid-column: 2 / 3;
         
     }
-
+    /* 3rd, 6th, 9th */
     .tiltingContainer .mouse-position-tracker:nth-of-type(3n){
-        background-color: green;
         grid-column: 3 / 4;
         
+    }
+    
+    /* 1-3 */
+    .tiltingContainer .mouse-position-tracker:nth-child(n + 1):nth-child(-n + 3){
+        grid-row: 1 / 2;  
+    }
+    /* 4-6 */
+    .tiltingContainer .mouse-position-tracker:nth-child(n + 4):nth-child(-n + 6){
+        grid-row: 2 / 3;  
+    }
+    /* 7-9 */
+    .tiltingContainer .mouse-position-tracker:nth-child(n + 7):nth-child(-n + 9){
+        grid-row: 3 / 4;  
     }
 
 /* Fonts */
