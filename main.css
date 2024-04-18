@@ -222,6 +222,24 @@ div.title-small *{
         grid-template-rows: repeat(3, 1fr);
     }
 
+    .tiltingContainer .mouse-position-tracker:nth-of-type(3n - 2){
+        background-color: yellow;
+        grid-column: 1 / 2;
+        
+    }
+
+    .tiltingContainer .mouse-position-tracker:nth-of-type(3n - 1){
+        background-color: red;
+        grid-column: 2 / 3;
+        
+    }
+
+    .tiltingContainer .mouse-position-tracker:nth-of-type(3n){
+        background-color: green;
+        grid-column: 3 / 4;
+        
+    }
+
 /* Fonts */
 
 /* jacques-francois */
