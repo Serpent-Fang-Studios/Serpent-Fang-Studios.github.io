@@ -14,7 +14,7 @@ body{
     margin: 0;
 }
 
-p{
+p, a{
     font-family: 'jacques-francois-Reg', serif;
 }
 
