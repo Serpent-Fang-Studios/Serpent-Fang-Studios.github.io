@@ -126,11 +126,18 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
+    align-items: center;
 }
 
 .ability .abilitytype{
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    
+}
+
+.ability .abilitytype img{
+    width: 15%;
+    aspect-ratio: 1;
 }
 
 .ability .abilityname{
@@ -138,12 +145,65 @@ body{
     grid-row: 1 / 2;
 }
 
+.ability .abilityname *{
+ font-size: large;
+}
+
 .ability .damage{
     grid-column: 3 / 4;
     grid-row: 1 / 2;
 }
 
+.ability .damage p{
+    text-align: right;
+}
+
 .ability .abilitySummary{
     grid-column: 1 / 4;
     grid-row: 2 / 3;
+}
+
+.bottombar{
+    border: 5px lightgray;
+    display: flex;
+}
+
+.bottombar .weakness{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bottombar .weakness .weaknesscontainer{
+    width: 18%;
+}
+
+.bottombar .weakness .weaknesscontainer img{
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.bottombar .weakness p:last-child{
+    font-size: larger;
+}
+
+
+.bottombar .retreat{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bottombar .retreat .retreatcontainer{
+    width: 18%;
+   display: flex;
+}
+
+.bottombar .retreat .retreatcontainer img{
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.bottombar .retreat p:last-child{
+    font-size: larger;
 }
