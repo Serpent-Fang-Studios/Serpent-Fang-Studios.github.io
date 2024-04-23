@@ -1,0 +1,230 @@
+body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(black 85%, gray 90%, black 100% );
+    
+}
+
+.kruskiecardcontainer{
+    margin: auto;
+    width: 30%;
+}
+
+.kruskiecard{
+    border: 10px gray solid;
+    aspect-ratio: 1 / 1.5;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.kruskiecard .inner{
+    background-color: aqua;
+    grid-row: 1 / 4;
+    grid-column: 1 / 4;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: .3fr 1fr 1fr;
+    grid-template-rows: 5% 1fr;
+    justify-items: left;
+}
+
+.basic{
+    border-radius: 100px;
+    width: 20%;
+    position: absolute;
+    left: -5px;
+    top: -1px;
+    
+    background-color: lightgray;
+    clip-path: polygon(0 0, 0 100%, 50% 100%, 90% 0);
+}
+
+.basic p{
+    font-size: small;
+    margin: 2px;
+    padding-left: 5px;
+}
+
+.name{
+    grid-column: 2 / 3;
+    align-self: end;
+}
+
+.name p{
+    font-size: x-large;
+    margin: 0px;
+}
+
+.baiscinfo{
+    grid-column: 3 / 4;
+    justify-self: right;
+    padding: 5px;
+
+    display: flex;
+    width: fit-content;
+    align-items: end;
+}
+
+.baiscinfo p{
+    font-size: xx-large;
+    margin: 0 0 0 3px;
+}
+
+.baiscinfo p:first-child{
+    font-size: xx-small;
+}
+
+.baiscinfo img{
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.innerinfo{
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.innerinfo .cardimg{
+    position: relative;
+    width: 99%;
+    height: 50%;
+    border-width: 5px 5px 0px 5px;
+    border-color: lightgray;
+    border-style: solid;
+    border-radius: 2px;
+}
+
+.innerinfo .cardimg img{
+    width: 100%;
+    height: 100%;
+}
+
+.innerinfo .cardimg .imgbottom{
+    border-radius: 100px;
+    width: 111%;
+    position: absolute;
+    left: -10px;
+    bottom: -10px;
+    
+    background-color: lightgray;
+    clip-path: polygon(0 0, 0 100%, 90% 100%, 95% 0);
+}
+
+.innerinfo .cardimg .imgbottom p{
+    margin: 0;
+    text-align: center;
+}
+
+
+
+
+
+.ability{
+    padding-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+}
+
+.ability .abilitytype{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    
+}
+
+.ability .abilitytype img{
+    width: 15%;
+    aspect-ratio: 1;
+}
+
+.ability .abilityname{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.ability .abilityname *{
+ font-size: large;
+}
+
+.ability .damage{
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.ability .damage p{
+    text-align: right;
+}
+
+.ability .abilitySummary{
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+
+.bottombar{
+    border: 5px lightgray;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.bottombar .weakness{
+    grid-column: 1 / 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bottombar .weakness p{
+    margin: 0;
+}
+
+.bottombar .weakness .weaknesscontainer{
+    width: 18%;
+}
+
+.bottombar .weakness .weaknesscontainer img{
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.bottombar .weakness p:last-child{
+    font-size: larger;
+}
+
+.bottombar .resistance{
+    grid-column: 2 / 3;
+}
+
+.bottombar .resistance p{
+    text-align: center;
+}
+
+
+.bottombar .retreat{
+    grid-column: 4 / 5;
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bottombar .retreat .retreatcontainer{
+    width: 10%;
+    display: flex;
+}
+
+.bottombar .retreat .retreatcontainer img{
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.bottombar .retreat p:last-child{
+    font-size: larger;
+}
