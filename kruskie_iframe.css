@@ -3,6 +3,8 @@ body{
     align-content: center;
     justify-content: center;
     height: 100vh;
+    background-image: linear-gradient(black 85%, gray 90%, black 100% );
+    
 }
 
 .kruskiecardcontainer{
@@ -34,6 +36,7 @@ body{
     width: 20%;
     position: absolute;
     left: -5px;
+    top: -1px;
     
     background-color: lightgray;
     clip-path: polygon(0 0, 0 100%, 50% 100%, 90% 0);
@@ -58,6 +61,7 @@ body{
 .baiscinfo{
     grid-column: 3 / 4;
     justify-self: right;
+    padding: 5px;
 
     display: flex;
     width: fit-content;
@@ -123,6 +127,7 @@ body{
 
 
 .ability{
+    padding-top: 10%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
@@ -165,13 +170,19 @@ body{
 
 .bottombar{
     border: 5px lightgray;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .bottombar .weakness{
+    grid-column: 1 / 2;
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.bottombar .weakness p{
+    margin: 0;
 }
 
 .bottombar .weakness .weaknesscontainer{
@@ -187,16 +198,26 @@ body{
     font-size: larger;
 }
 
+.bottombar .resistance{
+    grid-column: 2 / 3;
+}
+
+.bottombar .resistance p{
+    text-align: center;
+}
+
 
 .bottombar .retreat{
+    grid-column: 4 / 5;
+    justify-self: flex-end;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .bottombar .retreat .retreatcontainer{
-    width: 18%;
-   display: flex;
+    width: 10%;
+    display: flex;
 }
 
 .bottombar .retreat .retreatcontainer img{
