@@ -7,7 +7,12 @@ function handleOrientation(e){
     let beta = e.beta
     let gamma = e.gamma
 
-    let card = document.querySelector('tiltingContent')
+    let cardX = beta
+    let cardY = gamma
+
+    let card = document.getElementsByClassName('tiltingContent')
+    card.item(0).style.transform = 'rotateX(' + cardX + 'deg) rotateY(' + cardY + 'deg) rotateZ(0deg)'
+    
 }
 
 async function requestDeviceOrietation() {
