@@ -6,9 +6,9 @@ function handleOrientation(e){
     let alpha = e.alpha
     let beta = e.beta
     let gamma = e.gamma
-
-    let cardX = beta
-    let cardY = gamma
+    
+    let cardX = Math.max(-30, Math.min(beta - 90, 30));
+    let cardY = Math.max(-30, Math.min(gamma, 30));
 
     let card = document.getElementsByClassName('tiltingContent')
     card.item(0).style.transform = 'rotateX(' + cardX + 'deg) rotateY(' + cardY + 'deg) rotateZ(0deg)'
