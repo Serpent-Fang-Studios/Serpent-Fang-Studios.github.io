@@ -1,5 +1,5 @@
 window.onload = function() {
-    if (!isMobileDevice()) {
+    if (isMobileDevice()) {
         requestDeviceOrientation();
     }
 };
