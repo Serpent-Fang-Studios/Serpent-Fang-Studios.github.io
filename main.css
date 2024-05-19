@@ -283,6 +283,11 @@ div.title-small *{
     text-align: center;
 }
 
+
+ .hidden{
+    display: none !important;
+}
+
     /* Tilting */
     /* The container that will have all the content in it with the mouse position dectections */
     .tiltingContainer{
