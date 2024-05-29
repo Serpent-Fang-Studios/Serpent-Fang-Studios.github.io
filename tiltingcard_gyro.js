@@ -19,7 +19,7 @@ function handleOrientation(e) {
     let cardY = Math.max(-30, Math.min(gamma, 30));
 
     let card = document.getElementsByClassName('tiltingContent')[0]; // Get the first element
-    card.style.transform = 'rotateX(' + cardX + 'deg) rotateY(' + cardY + 'deg) rotateZ(0deg)';
+    card.style.transform = 'rotateX(' + cardX + 'deg) rotateY(' + cardY + 'deg) rotateZ(0deg)'; //https://stackoverflow.com/questions/27303339/transform-not-working-on-ios
 }
 
 async function requestDeviceOrientation() {
