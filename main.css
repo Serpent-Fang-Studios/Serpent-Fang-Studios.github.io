@@ -254,6 +254,33 @@ div.generalContent > *{
 https://www.youtube.com/watch?v=eOJTj_mWJds 
 */
 
+/* Footer */
+footer{
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--secondary);
+    height: 150px;
+}
+
+footer .logocontainer{
+ width: 200px;
+}
+
+footer .dividerLine{
+    width: 5px;
+    background-color: var(--primary);
+    margin: 10px;
+}
+
+footer .footercontent{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 /* Helper classes */
 
 div.title *{
