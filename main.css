@@ -281,6 +281,15 @@ footer .footercontent{
     gap: 10px;
 }
 
+footer .footercontent a{
+    color: var(--textColorLight);
+    text-decoration: none;
+}
+
+footer .footercontent a:last-of-type{
+    color: var(--secondary);
+}
+
 /* Helper classes */
 
 div.title *{
