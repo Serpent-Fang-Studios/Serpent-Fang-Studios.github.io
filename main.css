@@ -140,6 +140,7 @@ div.generalContent > *{
     font-size: 20px;
     display: -webkit-box;
     -webkit-line-clamp: 40;
+    line-clamp: 40;
     -webkit-box-orient: vertical; 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -187,6 +188,7 @@ div.generalContent > *{
     width:100%;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical; 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -212,6 +214,7 @@ div.generalContent > *{
 
 .games .gameslist{
     display: flex;
+    justify-content: space-evenly;
     margin: 0px 70px;
     gap: 25px;
 }
@@ -288,6 +291,10 @@ footer .footercontent a{
 
 footer .footercontent a:last-of-type{
     color: var(--secondary);
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
 }
 
 /* Helper classes */
