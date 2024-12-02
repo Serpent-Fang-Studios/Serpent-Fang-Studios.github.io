@@ -1,6 +1,6 @@
 :root{
     --navbuttons: #D9D9D9;
-    --navbuttonshover: #B9B9B9;
+    --navbuttonshover: #b5b9b5;
     --navbar: #9B9D9B;
     --primary: #3A3A3A;
     --secondary: #151B1B;
@@ -47,16 +47,37 @@ nav .buttonContainer a{
     border-radius: 5px;
 
     /* Transitions */
-    -moz-transition: all .2s;
-    -o-transition: all .2s;
-    -webkit-transition: all .2s;
-    transition: all .2s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 
 nav .buttonContainer a:hover{
     color: var(--textColorDark);
     background-color: var(--navbuttonshover);
     border-radius: 15px;
+}
+
+nav div.Settings{
+    align-self: center;
+    justify-self: end;
+}
+
+nav div.Settings a img{
+    width: 50px;
+    height: 50px;
+    rotate: 0deg;
+
+    /* Transitions */
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+nav div.Settings a:hover img{
+    rotate: -360deg;
 }
 
 div.Cover{
