@@ -4,14 +4,17 @@
     --navbar: #9B9D9B;
     --primary: #3A3A3A;
     --secondary: #151B1B;
-    --background: #091010;
+    --background: #09101027;
     --textColorDark: black;
     --textColorLight: white;
     --subtextColor:#dadada;
+    --serpentGreenLight: #00a013;
+    --serpentGreenDark: #002B05;
 }
 
 body{
     margin: 0;
+    background: linear-gradient(black 0%, var(--serpentGreenDark) 88%);
 }
 
 p, a{
@@ -30,6 +33,11 @@ nav{
     padding: 10px 30px;
     grid-template-columns: 30% auto 30%;
     z-index: 10000;
+}
+
+nav div.title *{
+    color: var(--serpentGreenLight);
+    font-weight: 300;
 }
 
 nav .buttonContainer{
@@ -84,7 +92,7 @@ div.Cover{
     height: 80vh;
     overflow: hidden;
     background-color: black;
-    opacity: 0.5;
+    opacity: 1;
     
 }
 
@@ -350,6 +358,33 @@ div.title-small *{
 
  .hidden{
     display: none !important;
+}
+
+div.buttonContainer{
+    display:flex;
+    gap: 20px;
+}
+
+div.buttonContainer a{
+    display: inline;
+    align-self: center;
+    text-decoration: none;
+    color: var(--textColorDark);
+    background-color: var(--navbuttons);
+    padding: 10px 13px;
+    border-radius: 5px;
+
+    /* Transitions */
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+div.buttonContainer a:hover{
+    color: var(--textColorDark);
+    background-color: var(--navbuttonshover);
+    border-radius: 15px;
 }
 
     /* Tilting */
