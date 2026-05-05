@@ -10,7 +10,10 @@ require('dotenv').config();
 
 //other req
 
+const {connectDB} = require('./config/db');
 
+//pre reqs
+connectDB();
 
 //server
 
