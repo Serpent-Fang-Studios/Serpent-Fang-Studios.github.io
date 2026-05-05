@@ -1,0 +1,26 @@
+{
+  "name": "serpent-fang-studios.github.io",
+  "version": "1.0.0",
+  "description": "webserver and website for serpent fang studios",
+  "homepage": "https://github.com/Serpent-Fang-Studios/Serpent-Fang-Studios.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/Serpent-Fang-Studios/Serpent-Fang-Studios.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Serpent-Fang-Studios/Serpent-Fang-Studios.github.io.git"
+  },
+  "license": "ISC",
+  "author": "Erik Barker, Serpent Fang Studios Website Dev Team",
+  "type": "commonjs",
+  "main": "./backend/server.js",
+  "scripts": {
+    "test": "nodemon run ./backend/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^9.6.1"
+  }
+}
