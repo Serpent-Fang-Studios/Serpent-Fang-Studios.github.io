@@ -22,10 +22,10 @@ const user_gamesSchema = mongoose.Schema(
             type:Number,
             min:0
         },
-        playsOn:{
-            type:mongoose.SchemaTypes.Array,
+        playsOn:[{
+            type:String,
             enum:["pc","pc.steam","console","console.xbox","console.playstation"]
-        },
+        }],
         achievements:[]
     }
 )
@@ -49,10 +49,10 @@ const user_communitySchema = mongoose.Schema(
             min:0,
             required: [true, "must set strikes count"]
         },
-        restrictions:{
-            type:mongoose.SchemaTypes.Array,
+        restrictions:[{
+            type:String,
             enum:["no-post", "no-bug-report", "no-react", "no-comment", "no-follow", "no-profile", "no-access"]
-        }
+        }]
     }
 )
 
@@ -90,6 +90,7 @@ const userSchema = mongoose.Schema(
         },
         passwordHash:{
             type:String,
+            select:false,
             required: [true, "must add password"]
         },
         profile:{
@@ -129,3 +130,5 @@ const userSchema = mongoose.Schema(
         
     }
 );
+
+module.exports = mongoose.model('User', userSchema, 'Users')

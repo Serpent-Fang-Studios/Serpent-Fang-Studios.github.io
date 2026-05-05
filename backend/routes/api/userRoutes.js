@@ -1,13 +1,21 @@
 const express = require('express');
+const {
+    getUserData, 
+    getUserDatabyID,
+    updateCurrentUserData,
+    updateCurrentUserDatabyID,
+    deleteCurrentUserData,
+    deleteCurrentUserDatabyID
+} = require('../../controller/userController');
 
 const router = express.Router();
 
-router.get("/user", (req,res)=>{console.log("get current user"); res.status(200).end()});
-router.get("/:id/user", (req,res)=>{console.log("get user by id"+ req.params.id); res.status(200).end()});
-router.patch("/update", (req,res)=>{console.log("update current user"); res.status(200).end()});
-router.patch("/:id/update", (req,res)=>{console.log("update user by id"+ req.params.id); res.status(200).end()});
-router.delete("/", (req,res)=>{console.log("delete current user"); res.status(200).end()});
-router.delete("/:id/", (req,res)=>{console.log("delete user by id:" + req.params.id); res.status(200).end()});
+router.get("/user", getUserData);
+router.get("/:id/user",getUserDatabyID);
+router.patch("/update",updateCurrentUserData);
+router.patch("/:id/update",updateCurrentUserDatabyID);
+router.delete("/",deleteCurrentUserData);
+router.delete("/:id/",deleteCurrentUserDatabyID);
 
 
 module.exports = router;
