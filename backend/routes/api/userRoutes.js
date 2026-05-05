@@ -6,7 +6,7 @@ const {
     updateCurrentUserDatabyID,
     deleteCurrentUserData,
     deleteCurrentUserDatabyID
-} = require('../../controller/userController');
+} = require('../../controllers/userController');
 
 const router = express.Router();
 

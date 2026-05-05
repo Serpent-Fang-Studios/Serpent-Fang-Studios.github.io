@@ -30,27 +30,23 @@ const user_gamesSchema = mongoose.Schema(
     }
 )
 
-const user_connectionSchema = mongoose.Schema(
-    {
-        steam:String,
-        discord:String
-    }
-)
-
 const user_communitySchema = mongoose.Schema(
     {
         role:{
             type:String,
+            default:"community.member",
             enum:["community.member", "community.member", "admin.admin", "admin.moderator", "emp.developer", "emp.QnA", "emp.artist", "emp.soundDesigner", "emp.projectManager", "emp.owner", "dev.testUser"],
             required: [true, "must set role"]
         },
         strikes:{
             type:Number,
             min:0,
+            default:0,
             required: [true, "must set strikes count"]
         },
         restrictions:[{
             type:String,
+            default:[],
             enum:["no-post", "no-bug-report", "no-react", "no-comment", "no-follow", "no-profile", "no-access"]
         }]
     }
@@ -97,31 +93,47 @@ const userSchema = mongoose.Schema(
             type:user_profileSchema,
             required: [true, "user must have a profile"]
         },
-        playedGamesList:[user_gamesSchema],
-        connections:user_connectionSchema,
+        playedGamesList:{
+            type:[user_gamesSchema],
+            defult:[]
+        },
+        connections:[],
         community:{
             type:user_communitySchema,
-            required:true
+            required:[true,"user must have a community profile"],
+            default:{}
         },
-        post:[mongoose.SchemaTypes.ObjectId],
-        savedpost:[mongoose.SchemaTypes.ObjectId],
-        bugReports:[mongoose.SchemaTypes.ObjectId],
+        post:{
+            type:[mongoose.SchemaTypes.ObjectId],
+            default:[]
+        },
+        savedpost:{
+            type:[mongoose.SchemaTypes.ObjectId],
+            default:[]
+        },
+        bugReports:{
+            type:[mongoose.SchemaTypes.ObjectId],
+            default:[]
+        },
         social:{
             type:user_socialSchema,
-            required:[true, "user must have a social profile"]
+            required:[true, "user must have a social profile"],
+            default:{}
         },
         cards:{
             type:user_cardsSchema,
-            required:[true, "user must have a cards profile"]
+            required:[true, "user must have a cards profile"],
+            default:{}
         },
         settings:{
             type:user_settingsSchema,
-            required:[true, "user must have a settings profile"]
+            required:[true, "user must have a settings profile"],
+            default:{}
         },
         lastVisited:{
             type:mongoose.SchemaTypes.Date,
             required: [true, "must add creation date"],
-            min:Date.now()
+            min:Date.now(),
         },
         creationDate:{
             type:mongoose.SchemaTypes.Date,
