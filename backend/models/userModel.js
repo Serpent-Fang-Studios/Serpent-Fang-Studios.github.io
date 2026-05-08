@@ -84,7 +84,7 @@ const userSchema = mongoose.Schema(
             required: [true, "must add email"]
             //add email vaildation validate:function()
         },
-        passwordHash:{
+        passwordhash:{
             type:String,
             select:false,
             required: [true, "must add password"]
