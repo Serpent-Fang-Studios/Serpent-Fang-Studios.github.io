@@ -8,14 +8,18 @@ const {
     deleteCurrentUserDatabyID
 } = require('../../controllers/userController');
 
+const {
+    verifyUserAdminStatus, verifyUserToken
+} = require("../../middleware/accountAuthMiddleware")
+
 const router = express.Router();
 
-router.get("/user", getUserData);
-router.get("/:id/user",getUserDatabyID);
-router.patch("/update",updateCurrentUserData);
-router.patch("/:id/update",updateCurrentUserDatabyID);
-router.delete("/",deleteCurrentUserData);
-router.delete("/:id/",deleteCurrentUserDatabyID);
+router.get("/user",verifyUserToken, getUserData);
+router.get("/:id/user",verifyUserToken, verifyUserAdminStatus, getUserDatabyID);
+router.patch("/update",verifyUserToken, updateCurrentUserData);
+router.patch("/:id/update",verifyUserToken, verifyUserAdminStatus, updateCurrentUserDatabyID);
+router.delete("/",verifyUserToken, deleteCurrentUserData);
+router.delete("/:id/",verifyUserToken, verifyUserAdminStatus, deleteCurrentUserDatabyID);
 
 
 module.exports = router;

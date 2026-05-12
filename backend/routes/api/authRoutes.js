@@ -1,5 +1,9 @@
 const express = require('express');
 
+const {
+    verifyUserAdminStatus, verifyUserToken
+} = require("../../middleware/accountAuthMiddleware")
+
 const router = express.Router();
 
 const {
@@ -11,7 +15,7 @@ const {
 
 router.post("/register", register);
 router.post("/login", login);
-router.post("/logout", logout);
-router.post("/validate", validate);
+router.post("/logout",verifyUserToken, logout);
+router.post("/validate",verifyUserToken, validate);
 
 module.exports = router;

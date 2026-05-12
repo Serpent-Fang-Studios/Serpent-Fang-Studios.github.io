@@ -11,6 +11,7 @@ require('dotenv').config();
 //other req
 
 const {connectDB} = require('./config/db');
+const {errorHandler} = require('./middleware/errorHandelingMiddleware')
 
 //pre reqs
 connectDB();
@@ -26,6 +27,8 @@ app.use(express.urlencoded(
         extended: false
     }
 ));
+
+app.use(errorHandler);
 
 //routes
 app.use('/',express.static(path.join(__dirname,"../frontend/public")))

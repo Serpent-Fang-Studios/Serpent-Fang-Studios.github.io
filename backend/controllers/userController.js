@@ -5,10 +5,10 @@ const User = require('../models/userModel');
 
 const getUserData = asyncHandeler(async (req, res)=>{
     console.log("get current user");
-    const userData = await User.findById(req.User.id, {passwordhash: 0});
+    const userData = await User.findById(req.user.id, {passwordhash: 0});
 
     if (!userData) {
-        res.status(404).json({message:`no user with the id ${req.User.id} was found`});
+        res.status(404).json({message:`no user with the id ${req.user.id} was found`});
         return;
     }
 
@@ -30,10 +30,10 @@ const getUserDatabyID = asyncHandeler(async (req, res)=>{
 //to do finish updated with put
 const updateCurrentUserData = asyncHandeler(async (req, res)=>{
     console.log("update current user");
-    const userData = await User.findById(req.User.id);
+    const userData = await User.findById(req.user.id);
 
     if (!userData) {
-        res.status(404).json({message:`no user with the id ${req.User.id} was found`});
+        res.status(404).json({message:`no user with the id ${req.user.id} was found`});
         return;
     }
 });
@@ -51,10 +51,10 @@ const updateCurrentUserDatabyID = asyncHandeler(async (req, res)=>{
 
 const deleteCurrentUserData = asyncHandeler(async (req, res)=>{
     console.log("delete current user");
-    const userData = await User.findById(req.User.id);
+    const userData = await User.findById(req.user.id);
 
     if (!userData) {
-        res.status(404).json({message:`no user with the id ${req.User.id} was found`});
+        res.status(404).json({message:`no user with the id ${req.user.id} was found`});
         return;
     }
 
