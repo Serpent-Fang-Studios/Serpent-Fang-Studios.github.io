@@ -11,11 +11,16 @@ require('dotenv').config();
 //other req
 
 const {connectDB} = require('./config/db');
+const {connectEmail, sendMessage} = require('./config/email')
 const {errorHandler} = require('./middleware/errorHandelingMiddleware')
 
 //pre reqs
 connectDB();
+connectEmail();
 
+if(process.env.CONNECTION_EMAIL==="true"){
+    sendMessage(process.env.SFS_EMAIL_USER, "Connection", "The SFS website server is now connected to this email, automatic messages will be sent out from this email", null);
+}
 //server
 
 const app = express();
