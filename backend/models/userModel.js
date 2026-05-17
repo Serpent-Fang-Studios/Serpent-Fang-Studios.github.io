@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+const {Media} = require('./mediaModel');
 
 const user_profileSchema = mongoose.Schema(
     {
@@ -138,6 +139,10 @@ const userSchema = mongoose.Schema(
         creationDate:{
             type:mongoose.SchemaTypes.Date,
             default: Date.now
+        },
+        uploadedMedia:{
+            type:[Media],
+            default:[]
         }
         
     }

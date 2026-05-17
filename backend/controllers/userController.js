@@ -27,7 +27,6 @@ const getUserDatabyID = asyncHandeler(async (req, res)=>{
     res.status(200).json(userData);
 });
 
-//to do finish updated with put
 const updateCurrentUserData = asyncHandeler(async (req, res)=>{
     console.log("update current user");
     const userData = await User.findById(req.user.id);
@@ -36,10 +35,23 @@ const updateCurrentUserData = asyncHandeler(async (req, res)=>{
         res.status(404).json({message:`no user with the id ${req.user.id} was found`});
         return;
     }
+
+    if(!req.body.changes){
+        res.status(400).json({message:'no changes listed'});
+        return;
+    }
+
+    if(req.body.changes.passwordhash){
+        //TODO
+        //if the password is attempted to be changed email user conformation
+    }
+
+    let response = await User.updateOne({_id: userData._id}, { $set: JSON.parse(req.body.changes) });
+    console.log(response);
+    res.status(200).json({message:`updated user ${userData._id}`});
 });
 
-//to do finish updated with put
-const updateCurrentUserDatabyID = asyncHandeler(async (req, res)=>{
+const updateUserDatabyID = asyncHandeler(async (req, res)=>{
     console.log("update user by id"+ req.params.id);
     const userData = await User.findById(req.params.id);
 
@@ -47,6 +59,21 @@ const updateCurrentUserDatabyID = asyncHandeler(async (req, res)=>{
         res.status(404).json({message:`no user with the id ${req.params.id} was found`});
         return;
     }
+
+    if(!req.body.changes){
+        res.status(400).json({message:'no changes listed'});
+        return;
+    }
+
+    if(req.body.changes.passwordhash){
+        //TODO
+        //if the password is attempted to be changed email user conformation
+    }
+
+    console.log(req.body.changes);
+    let response = await User.updateOne({_id: userData._id}, { $set: JSON.parse(req.body.changes) });
+    console.log(response);
+    res.status(200).json({message:`updated user ${userData._id}`});
 });
 
 const deleteCurrentUserData = asyncHandeler(async (req, res)=>{
@@ -81,7 +108,7 @@ module.exports = {
     getUserData, 
     getUserDatabyID,
     updateCurrentUserData,
-    updateCurrentUserDatabyID,
+    updateUserDatabyID,
     deleteCurrentUserData,
     deleteCurrentUserDatabyID
 }
