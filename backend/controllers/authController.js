@@ -33,8 +33,6 @@ const register = asyncHandeler(async (req, res)=>{
         return;
     }
 
-    //TODO add email validation
-
     //hash password
     const salt = await bcrypt.genSalt(10);
     const passwordhash = await bcrypt.hash(req.body.password, salt);
@@ -59,6 +57,8 @@ const register = asyncHandeler(async (req, res)=>{
         
     }
 });
+
+//TODO make tmpRegister fuunction to hold the data from the form and store it in tmp users db
 
 //logs in a user with the username and password
 const login = asyncHandeler(async (req, res)=>{
