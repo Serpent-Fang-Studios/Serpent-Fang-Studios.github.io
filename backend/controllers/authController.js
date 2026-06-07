@@ -3,62 +3,57 @@
 const asyncHandeler = require('express-async-handler');
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const PendingUser = require("../models/pendingUserModel");
 const User = require('../models/userModel');
 
-//registers a new user to the system
+
+//registers a new user to the system from the pending user section
 const register = asyncHandeler(async (req, res)=>{
     console.log("register new user");
 
-    if(!req.body.username || !req.body.email || !req.body.password || !req.body.displayName){
-        throw new Error("please fill all * fields");
-        return;
+    var pendUser = await PendingUser.findOne({token:req.params.token});
+
+    if(!pendUser){
+        res.status(400);
+        throw new Error("No pending user found");
     }
 
-    //TODO add profanity checker for username
-    //TODO add profanity checker for displayName
-    //TODO add password security checker
-    
-
-    var usernameUser = await User.findOne({username:req.body.username});
-
-    if (usernameUser){
-        throw new Error("Username is taken")
-        return;
+    var emailUser = await User.findOne({email: pendUser.email});
+    if (emailUser) {
+        await PendingUser.deleteOne({token:pendUser.token})
+        res.status(500);
+        throw new Error("Pending User has allready been verified");
     }
-
-    var emailUser = await User.findOne({email:req.body.email});
-
-    if(emailUser){
-        throw new Error("email is already in use")
-        return;
-    }
-
-    //hash password
-    const salt = await bcrypt.genSalt(10);
-    const passwordhash = await bcrypt.hash(req.body.password, salt);
 
     const user = await User.create({
-        username:req.body.username,
-        email:req.body.email,
-        passwordhash,
+        username:pendUser.username,
+        email:pendUser.email,
+        passwordhash: pendUser.password,
         profile:{
-            displayName:req.body.displayName,
-            bio:req.body.bio,
+            displayName:pendUser.displayName,
+            bio:pendUser.bio,
             avatar:null
         },
         lastVisited:Date.now()
     });
 
     if(user){
-        res.status(201).json({id: user._id, username: user.username, email:user.email, token:genToken(user._id)});
+        await PendingUser.deleteOne({token:pendUser.token})
+        res.status(201).json({
+            user:{
+                id: user._id, 
+                username: user.username, 
+                email:user.email, 
+                token:genToken(user._id)
+            },
+            message:"User Created"
+        });
     }else{
         res.status(400);
         throw new Error("Invalid User Data");
         
     }
 });
-
-//TODO make tmpRegister fuunction to hold the data from the form and store it in tmp users db
 
 //logs in a user with the username and password
 const login = asyncHandeler(async (req, res)=>{

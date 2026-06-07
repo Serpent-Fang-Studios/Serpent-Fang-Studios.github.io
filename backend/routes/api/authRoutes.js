@@ -13,7 +13,12 @@ const {
     validate
 } = require('../../controllers/authController');
 
-router.post("/register", register);
+const {
+    verifyEmailRegister
+} = require("../../middleware/emailAuthMiddleware");
+
+router.post("/register", verifyEmailRegister);
+router.get("/verify/:token", register)
 router.post("/login", login);
 router.post("/logout",verifyUserToken, logout);
 router.post("/validate",verifyUserToken, validate);
