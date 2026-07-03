@@ -28,7 +28,6 @@ nav{
     display: grid;
     position: sticky;
     top: 0px;
-    /* opacity: 70%; */
     background-color: var(--navbar);
     padding: 10px 30px;
     grid-template-columns: 30% auto 30%;
@@ -291,7 +290,7 @@ footer{
     display: flex;
     justify-content: flex-start;
     background-color: var(--secondary);
-    height: 150px;
+    height: 20vh;
 }
 
 footer .logocontainer{

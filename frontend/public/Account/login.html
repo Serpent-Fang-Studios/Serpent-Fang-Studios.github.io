@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serpent Fang Studios - LogIn</title>
 </head>
@@ -25,22 +26,24 @@
             <div class="title">
                 <h4>LogIn</h4>
             </div>
-            <div class="username">
+            <div class="username textfieldcontainer">
                 <p>username: </p>
                 <input type="text" name="username" id="usernameInput">
             </div>
-            <div class="password">
+            <div class="password textfieldcontainer">
                 <p>password: </p>
                 <input type="password" name="password" id="passwordInput">
             </div>
-            <div class="btnContainer">
-                <a href="signUp.html" class="button" id="signup">
+            <div class="buttonContainer">
+                <a href="signUp.html" class="button" id="signupBtn">
                     <p>Sign Up</p>
                 </a>
-                <button type="submit">Login</button>
+                <a class="button" id="loginBtn">
+                    <p>login</p>
+                </a>
             </div>
             <div class="messageContainer">
-                <p>message</p>
+                <p id="messageString">message</p>
             </div>
         </div>
     </section>
@@ -67,4 +70,5 @@
         </div>
     </footer>
 </body>
+<script src="./login.js"></script>
 </html>
