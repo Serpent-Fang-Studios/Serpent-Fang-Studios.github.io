@@ -28,7 +28,7 @@
     justify-content: center;
 }
 
-.textfieldcontainer p{
+.textfieldcontainer p, .messageContainer p{
     color: white;
 }
     

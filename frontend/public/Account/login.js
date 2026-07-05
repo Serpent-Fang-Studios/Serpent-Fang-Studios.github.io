@@ -9,9 +9,6 @@ function login() {
     var username = usernameInput.value
     var password = passwordInput.value
 
-    console.log(username)
-    console.log(password)
-
     fetch("http://localhost:5656/api/auth/login",{
         method:'Post',
         headers:{
@@ -29,7 +26,7 @@ function login() {
             return;
         }
 
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("authToken", data.token);
         window.location.href = '/account.html'
 
     }).catch(err=>{

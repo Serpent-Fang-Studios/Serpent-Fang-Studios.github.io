@@ -39,15 +39,42 @@ const register = asyncHandeler(async (req, res)=>{
 
     if(user){
         await PendingUser.deleteOne({token:pendUser.token})
-        res.status(201).json({
-            user:{
-                id: user._id, 
-                username: user.username, 
-                email:user.email, 
-                token:genToken(user._id)
-            },
-            message:"User Created"
-        });
+        res.status(201).send(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Verification Successful</title>
+                <style>
+                    body { font-family: sans-serif; text-align: center; padding-top: 50px; background: #f9f9f9; }
+                    .card { max-width: 400px; margin: 0 auto; padding: 30px; border-radius: 8px; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+                    h2 { color: #2ecc71; }
+                </style>
+            </head>
+            <body>
+                <div class="card">
+                    <h2>Email Verified Successfully!</h2>
+                    <p>Logging you in and closing this window...</p>
+                </div>
+
+                <script>
+                    const token = "${genToken(user._id)}";
+
+                    // 1. Save the token to localStorage
+                    localStorage.setItem('authToken', token);
+
+                    // 2. Broadcast the token to the original signup tab
+                    const authChannel = new BroadcastChannel('auth_channel');
+                    authChannel.postMessage({ type: 'VERIFICATION_SUCCESS', token: token });
+                    authChannel.close(); // Clean up the channel channel instance
+
+                    // 3. Close this email-opened window after 1.5 seconds
+                    setTimeout(() => {
+                        window.close();
+                    }, 1500);
+                </script>
+            </body>
+            </html>
+            `);
     }else{
         res.status(400);
         throw new Error("Invalid User Data");

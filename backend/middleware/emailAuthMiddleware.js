@@ -9,6 +9,7 @@ const User = require("../models/userModel");
 const verifyEmailRegister = expressAsyncHandler( async(req, res) =>{
    try {
      console.log("Verify Email - Register");
+     console.log(req)
     
     if(!req.body.username || !req.body.email || !req.body.password || !req.body.displayName){
         throw new Error("please fill all * fields");

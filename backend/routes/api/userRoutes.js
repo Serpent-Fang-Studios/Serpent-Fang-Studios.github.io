@@ -16,7 +16,7 @@ const router = express.Router();
 
 router.get("/user",verifyUserToken, getUserData);
 router.get("/:id/user",verifyUserToken, verifyUserAdminStatus, getUserDatabyID);
-//TODO add get "/public/:id/user" to allow for other users to view a users public generated page
+//TODO add get "/public/:id/user" to allow for other users to view a users public data
 router.patch("/update",verifyUserToken, updateCurrentUserData);
 router.patch("/:id/update",verifyUserToken, verifyUserAdminStatus, updateUserDatabyID);
 router.delete("/",verifyUserToken, deleteCurrentUserData);
